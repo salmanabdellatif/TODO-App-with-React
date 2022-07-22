@@ -10,6 +10,12 @@
 
 ## Getting Started with TODO-APP
 
+### frist run this cmd line :
+
+in the project directory.
+
+### `npm install`
+
 ### Available Scripts
 
 In the project directory, you can run:
