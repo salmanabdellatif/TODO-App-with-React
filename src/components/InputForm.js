@@ -1,6 +1,19 @@
 import React from "react";
 import add from "../images/add.png";
-import handleAddingListener from "../utils/handleAddingListener";
+import { nanoid } from "nanoid";
+
+function handleAddingListener(setElementsData) {
+  let inputArea = document.querySelector(".input-area");
+  if (inputArea.value) {
+    const newTask = {
+      id: nanoid(),
+      text: inputArea.value,
+      completed: false,
+    };
+    setElementsData(prevData => [newTask, ...prevData]);
+  }
+  inputArea.value = "";
+}
 
 export default function InputForm(props) {
   return (

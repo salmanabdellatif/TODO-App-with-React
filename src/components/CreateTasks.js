@@ -4,6 +4,7 @@ import Task from "./Task";
 export default function CreateTasks(props) {
   const tasks = props.elementsData.map(element => (
     <Task
+      key={element.id}
       {...element}
       setElementsData={props.setElementsData}
       elementsData={props.elementsData}
