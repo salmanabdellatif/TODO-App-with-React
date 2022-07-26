@@ -82,16 +82,21 @@ body {
 }
 
 .new-task span {
+  padding: 10px 20px;
   max-width: calc(100% - 60px);
   overflow-wrap: break-word;
 }
 
-.Imgs img {
+.checkbox {
+  cursor: pointer;
+}
+
+.new-task img {
   width: 30px;
   border-radius: 6px;
 }
 
-.Imgs img:hover {
+.new-task img:hover {
   cursor: pointer;
   background-color: rgb(124, 124, 124);
 }
