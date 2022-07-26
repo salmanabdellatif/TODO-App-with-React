@@ -1,12 +1,15 @@
 import React from "react";
-
 import InputForm from "./InputForm";
 import CreateTasks from "./CreateTasks";
 
-import getData from "../utils/getData";
-
 export default function App() {
-  const [elementsData, setElementsData] = React.useState(getData());
+  const [elementsData, setElementsData] = React.useState(
+    () => JSON.parse(localStorage.getItem("dataObj")) || []
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem("dataObj", JSON.stringify(elementsData));
+  }, [elementsData]);
 
   return (
     <div className="todo-app">
