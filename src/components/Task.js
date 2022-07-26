@@ -1,34 +1,48 @@
 import React from "react";
-
-import donePic from "../images/done.png";
 import deletePic from "../images/delete.png";
 
-import handleDeleteListener from "../utils/handleDeleteListener";
-import handleDoneListener from "../utils/handleDoneListener";
-
 export default function Task(props) {
+  function handleDoneListener(event) {
+    props.setElementsData(prevData =>
+      prevData.map(element => {
+        return element.id === props.id
+          ? { ...element, completed: !element.completed }
+          : element;
+      })
+    );
+  }
+
+  function handleDeleteListener() {
+    const newData = props.elementsData.filter(
+      element => element.id !== props.id
+    );
+    props.setElementsData(prevData => newData);
+  }
+
   return (
-    <div className="new-task" id={"task" + props.id}>
-      <span className="text">{props.text}</span>
-      <div className="Imgs">
-        <img
-          style={{
-            backgroundColor: props.elementsData[props.id - 1].completed
-              ? "#32cd32"
-              : "",
-          }}
-          src={donePic}
-          alt="doneImg"
-          onClick={() => handleDoneListener(props)}
-        />
-        <img
-          src={deletePic}
-          alt="deleteImg"
-          onClick={() => {
-            handleDeleteListener(props);
-          }}
-        />
-      </div>
+    <div
+      className="new-task"
+      id={"task" + props.id}
+      style={props.completed ? { backgroundColor: "#51bd51" } : {}}>
+      <input
+        className="checkbox"
+        type="checkbox"
+        checked={props.completed ? "checked" : ""}
+        onChange={handleDoneListener}></input>
+      <span
+        className="text"
+        style={
+          props.completed
+            ? {
+                textDecoration: "line-through",
+                color: "#201b1b",
+                fontWeight: "900",
+              }
+            : {}
+        }>
+        {props.text}
+      </span>
+      <img src={deletePic} alt="deleteImg" onClick={handleDeleteListener} />
     </div>
   );
 }
