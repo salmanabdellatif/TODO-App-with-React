@@ -25,5 +25,10 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+## Live Demo
+
+To see a live demo of the deployed app, visit [https://todo-app-lemon-rho.vercel.app/](https://todo-app-lemon-rho.vercel.app/).
+
+
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
